@@ -7,7 +7,7 @@
       "dom"
     ],
     "jsx": "react",
-    "declaration": false, // TODO: sort out how to include type declarations
+    "declaration": true,
     "sourceMap": true,
     "strict": true,
     "noUnusedLocals": true,
