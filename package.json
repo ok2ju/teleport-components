@@ -2,14 +2,13 @@
   "name": "teleport-components",
   "version": "0.1.0",
   "private": true,
-  "description": "",
+  "description": "Collection of React portal based components",
   "scripts": {
-    "build": "lerna run build --stream --parallel",
-    "test": "lerna run test"
+    "build": "lerna run build --stream --parallel"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["react", "components", "portal", "ui"],
+  "author": "ok2ju <soulSpringg@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",

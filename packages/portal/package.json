@@ -1,20 +1,17 @@
 {
   "name": "@teleport/portal",
   "version": "0.1.0",
-  "description": "> TODO: description",
+  "description": "React portal component",
   "author": "ok2ju <soulSpringg@gmail.com>",
   "homepage": "",
-  "license": "ISC",
+  "license": "MIT",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
   "scripts": {
     "clean": "rimraf ./cjs ./esm",
     "prebuild": "yarn clean",
-    "build": "yarn build:cjs && yarn build:esm",
-    "build:cjs": "tsc -p tsconfig.build.json --module commonjs --outDir cjs",
-    "build:esm": "tsc -p tsconfig.build.json --module esnext --outDir esm",
-    "test": "rollup -c=../../rollup.config.js"
+    "build": "rollup -c=../../rollup.config.js"
   },
   "files": [
     "cjs",

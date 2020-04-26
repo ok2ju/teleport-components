@@ -1,6 +1,6 @@
 .cache/
-node_modules/
 .vscode
 .DS_Store
+node_modules/
 packages/**/esm
 packages/**/cjs

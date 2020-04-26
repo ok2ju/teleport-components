@@ -1,5 +1,7 @@
 # Teleport components
 
+Collection of React portal based components
+
 TODO: make this repo public
 
 ```
