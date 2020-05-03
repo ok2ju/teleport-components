@@ -35,3 +35,5 @@ To setup your editor to automatically run ESLint's automatic fix command (i.e. e
   },
 }
 ```
+
+Project uses `husky` and `lint-staged` to lint code before commit
