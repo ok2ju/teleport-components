@@ -17,9 +17,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   module: {
-    rules: [
-      { test: /\.tsx?$/, loader: 'ts-loader' }
-    ]
+    rules: [{ test: /\.tsx?$/, loader: 'ts-loader' }]
   },
   plugins: [
     new HtmlWebpackPlugin({

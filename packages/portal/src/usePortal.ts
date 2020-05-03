@@ -1,12 +1,4 @@
-import {
-  ReactNode,
-  ReactPortal,
-  MouseEvent,
-  useState,
-  useEffect,
-  useRef,
-  useCallback
-} from 'react'
+import { ReactNode, ReactPortal, MouseEvent, useState, useEffect, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { useOnClickOutside } from './useOnClickOutside'
 
@@ -42,29 +34,45 @@ export const usePortal = (options: Options = defaultOptions): IPortal => {
     setOpen(value)
   }, [])
 
-  const open = useCallback((event: MouseEvent | Event) => { // TODO: add onOpen handler to Options and pass `event`
-    syncronizeAndSetOpen(true)
-  }, [syncronizeAndSetOpen])
+  const open = useCallback(
+    (event: MouseEvent | Event) => {
+      syncronizeAndSetOpen(true)
+    },
+    [syncronizeAndSetOpen]
+  )
 
-  const close = useCallback((event: MouseEvent | Event) => {
-    if (latestIsOpen.current) {
-      syncronizeAndSetOpen(false)
-    }
-  }, [syncronizeAndSetOpen])
+  const close = useCallback(
+    (event: MouseEvent | Event) => {
+      if (latestIsOpen.current) {
+        syncronizeAndSetOpen(false)
+      }
+    },
+    [syncronizeAndSetOpen]
+  )
 
-  const toggle = useCallback((event: MouseEvent | Event) => {
-    if (latestIsOpen.current) {
-      close(event)
-    } else {
-      open(event)
-    }
-  }, [open, close])
+  const toggle = useCallback(
+    (event: MouseEvent | Event) => {
+      if (latestIsOpen.current) {
+        close(event)
+      } else {
+        open(event)
+      }
+    },
+    [open, close]
+  )
 
-  useOnClickOutside(portalNode, refNode, useCallback((event: Event) => {
-    if (options.closeOnOutsideClick) {
-      close(event)
-    }
-  }, [close, options.closeOnOutsideClick]))
+  useOnClickOutside(
+    portalNode,
+    refNode,
+    useCallback(
+      (event: Event) => {
+        if (options.closeOnOutsideClick) {
+          close(event)
+        }
+      },
+      [close, options.closeOnOutsideClick]
+    )
+  )
 
   const Portal = (props: { children: ReactNode }): ReactPortal => {
     useEffect(() => {

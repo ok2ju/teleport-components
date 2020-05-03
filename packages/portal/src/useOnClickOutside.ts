@@ -1,11 +1,13 @@
 import { useEffect } from 'react'
 
-interface Ref { current: any }
+interface Ref {
+  current: any
+}
+
 type Handler = (event: Event) => void
 
-const containsTarget = (target: Ref, event: Event): boolean => (
+const containsTarget = (target: Ref, event: Event): boolean =>
   target?.current.contains(event.target)
-)
 
 export const useOnClickOutside = (container: Ref, ref: Ref, handler: Handler): void => {
   useEffect(() => {
