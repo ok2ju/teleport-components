@@ -13,3 +13,6 @@ TODO's:
 ```
 lerna add react packages/portal --peer
 ```
+typescript-lint (useful links):
+- https://github.com/typescript-eslint/typescript-eslint/issues/111
+- https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md

@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom'
 import { usePortal } from '../packages/portal/src'
 
 const Demo: React.FC = (): React.ReactElement => {
-  const { Portal, ref, isOpen, close, toggle } = usePortal({ closeOnOutsideClick: true })
+  const { Portal, ref, isOpen, close, toggle } = usePortal()
 
   return (
     <div>
@@ -13,11 +13,14 @@ const Demo: React.FC = (): React.ReactElement => {
       >
         Open Portal
       </button>
-      {isOpen &&
-        <Portal>
-          <h1>Example Test</h1>
-          <button onClick={close}>Close Portal</button>
-        </Portal>}
+      {isOpen
+        ? (
+          <Portal>
+            <h1>Example Test</h1>
+            <button onClick={close}>Close Portal</button>
+          </Portal>
+        )
+        : null}
     </div>
   )
 }

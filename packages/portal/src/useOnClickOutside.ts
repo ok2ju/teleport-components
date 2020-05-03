@@ -1,15 +1,15 @@
 import { useEffect } from 'react'
 
-type Ref = { current: any }
+interface Ref { current: any }
 type Handler = (event: Event) => void
 
-const containsTarget = (target: Ref, event: Event) => (
-  target.current && target.current.contains(event.target)
+const containsTarget = (target: Ref, event: Event): boolean => (
+  target?.current.contains(event.target)
 )
 
 export const useOnClickOutside = (container: Ref, ref: Ref, handler: Handler): void => {
   useEffect(() => {
-    const listener = (event: Event) => {
+    const listener = (event: Event): void => {
       if (containsTarget(container, event) || containsTarget(ref, event)) {
         return
       }

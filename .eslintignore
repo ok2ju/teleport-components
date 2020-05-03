@@ -1,0 +1,3 @@
+node_modules
+# If we don't ignore rollup config @typescript-eslint/parser emits parsing error
+rollup.config.js

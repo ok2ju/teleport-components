@@ -1,5 +1,5 @@
 import {
-  ReactElement,
+  ReactNode,
   ReactPortal,
   MouseEvent,
   useState,
@@ -11,23 +11,27 @@ import { createPortal } from 'react-dom'
 import { useOnClickOutside } from './useOnClickOutside'
 
 export interface Options {
-  closeOnOutsideClick: boolean; // TODO: add default value
+  closeOnOutsideClick: boolean
 }
 
 export interface PortalProps {
-  children: ReactElement[];
+  children: ReactNode
 }
 
 export interface IPortal {
-  open: (event: MouseEvent) => void;
-  close: (event: MouseEvent) => void;
-  toggle: (event: MouseEvent) => void;
-  isOpen: boolean;
-  Portal: (props: PortalProps) => ReactPortal;
-  ref: { current: any };
+  ref: { current: any }
+  isOpen: boolean
+  open: (event: MouseEvent) => void
+  close: (event: MouseEvent) => void
+  toggle: (event: MouseEvent) => void
+  Portal: (props: PortalProps) => ReactPortal
 }
 
-export const usePortal = (options: Options): IPortal => {
+const defaultOptions: Options = {
+  closeOnOutsideClick: true
+}
+
+export const usePortal = (options: Options = defaultOptions): IPortal => {
   const [isOpen, setOpen] = useState(false)
   const latestIsOpen = useRef(isOpen)
   const portalNode = useRef(document.createElement('div'))
@@ -60,19 +64,19 @@ export const usePortal = (options: Options): IPortal => {
     if (options.closeOnOutsideClick) {
       close(event)
     }
-  }, []))
+  }, [close, options.closeOnOutsideClick]))
 
-  const Portal = useCallback((props) => {
+  const Portal = (props: { children: ReactNode }): ReactPortal => {
     useEffect(() => {
       document.body.appendChild(portalNode.current)
 
       return () => {
         document.body.removeChild(portalNode.current)
       }
-    }, [portalNode])
+    }, [])
 
     return createPortal(props.children, portalNode.current)
-  }, [portalNode])
+  }
 
   return {
     open,
