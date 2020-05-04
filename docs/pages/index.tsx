@@ -1,8 +1,7 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { usePortal } from '../packages/portal/src'
+import { usePortal } from '../../packages/portal/src'
 
-const Demo: React.FC = (): React.ReactElement => {
+const HomePage: React.FC = (): React.ReactElement => {
   const { Portal, ref, isOpen, close, toggle } = usePortal()
 
   return (
@@ -20,4 +19,4 @@ const Demo: React.FC = (): React.ReactElement => {
   )
 }
 
-ReactDOM.render(<Demo />, document.getElementById('app'))
+export default HomePage

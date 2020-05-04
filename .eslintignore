@@ -1,3 +1,7 @@
 node_modules
-# If we don't ignore rollup config @typescript-eslint/parser emits parsing error
+.next
+out
+# If we don't ignore following configs @typescript-eslint/parser emits parsing error
 rollup.config.js
+next.config.js
+next-env.d.ts
