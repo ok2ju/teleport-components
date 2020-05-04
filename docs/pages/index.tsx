@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { usePortal } from '../../packages/portal/src'
+import { usePortal } from '@teleport/portal' // alias, check tsconfig.json `paths` section
 
 const HomePage: React.FC = (): React.ReactElement => {
   const { Portal, ref, isOpen, close, toggle } = usePortal()

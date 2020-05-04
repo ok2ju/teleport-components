@@ -9,8 +9,6 @@ module.exports = {
       use: [defaultLoaders.babel]
     })
 
-    // config.resolve.alias['@teleport/portal'] = path.join(__dirname, '../packages/portal/src')
-
     return config
   },
 }

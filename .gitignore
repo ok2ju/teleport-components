@@ -1,8 +1,15 @@
-out/
-.next/
 .cache/
 .vscode
 .DS_Store
+
 node_modules/
+
+out/
+.next/
+
 packages/**/esm
 packages/**/cjs
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

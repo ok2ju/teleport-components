@@ -24,7 +24,7 @@ const defaultOptions: Options = {
 }
 
 export const usePortal = (options: Options = defaultOptions): IPortal => {
-  const [isOpen, setOpen] = useState(false)
+  const [isOpen, setOpen] = useState<boolean>(false)
   const latestIsOpen = useRef(isOpen)
   const refNode = useRef()
 
