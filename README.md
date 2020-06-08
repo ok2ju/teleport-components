@@ -10,6 +10,7 @@ This is raw doc (mostly garbage).
 - Add Tooltip component
 - Add Popover component
 - Add Modal component
+- Automatically update `gh-pages`
 
 ## Commands
 Add dependency to specific package:
