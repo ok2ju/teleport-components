@@ -1,4 +1,5 @@
 const path = require('path')
+const isProduction = (process.env.NODE_ENV || 'production') === 'production'
 
 module.exports = {
   webpack: (config, { defaultLoaders }) => {
@@ -11,4 +12,8 @@ module.exports = {
 
     return config
   },
+  exportPathMap: () => ({
+    '/': { page: '/' },
+  }),
+  assetPrefix: isProd ? '/teleport-components' : ''
 }
