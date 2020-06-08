@@ -37,3 +37,27 @@ To setup your editor to automatically run ESLint's automatic fix command (i.e. e
 ```
 
 Project uses `husky` and `lint-staged` to lint code before commit
+
+## Docs
+
+Docs have written using `nextjs`.
+
+We use aliases to `packages` using `tsconfig.json` `paths` property:
+```json
+// docs/tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": "../",
+    "paths": {
+      "@teleport/*": [
+        "packages/*/src"
+      ]
+    }
+  },
+}
+```
+
+It allows us to write imports in following format:
+```javascript
+import { usePortal } from '@teleport/portal'
+```

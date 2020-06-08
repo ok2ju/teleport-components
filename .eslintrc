@@ -9,7 +9,7 @@
     "tsconfigRootDir": "./",
     "project": [
       "./packages/**/tsconfig.json",
-      "./demo/tsconfig.json"
+      "./docs/tsconfig.json"
     ]
   },
   "plugins": [

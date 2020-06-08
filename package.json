@@ -5,7 +5,8 @@
   "description": "Collection of React portal based components",
   "scripts": {
     "build": "lerna run build --stream --parallel",
-    "demo": "webpack-dev-server --config demo/webpack.config.js --open",
+    "demo": "next dev ./docs",
+    "demo:build": "next build ./docs && next export ./docs",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "keywords": [
@@ -38,14 +39,9 @@
     "lerna": "^3.20.2",
     "lint-staged": "^10.2.2",
     "prettier": "^2.0.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "rollup": "^2.7.2",
     "ts-loader": "^7.0.1",
-    "typescript": "^3.8.3",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "typescript": "^3.8.3"
   },
   "workspaces": [
     "packages/*"
@@ -59,5 +55,10 @@
     "*.{js,jsx,ts,tsx}": [
       "yarn lint"
     ]
+  },
+  "dependencies": {
+    "next": "^9.3.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

@@ -24,9 +24,8 @@ const defaultOptions: Options = {
 }
 
 export const usePortal = (options: Options = defaultOptions): IPortal => {
-  const [isOpen, setOpen] = useState(false)
+  const [isOpen, setOpen] = useState<boolean>(false)
   const latestIsOpen = useRef(isOpen)
-  const portalNode = useRef(document.createElement('div'))
   const refNode = useRef()
 
   const syncronizeAndSetOpen = useCallback((value) => {
@@ -61,25 +60,21 @@ export const usePortal = (options: Options = defaultOptions): IPortal => {
     [open, close]
   )
 
-  useOnClickOutside(
-    portalNode,
-    refNode,
-    useCallback(
-      (event: Event) => {
-        if (options.closeOnOutsideClick) {
-          close(event)
-        }
-      },
-      [close, options.closeOnOutsideClick]
-    )
-  )
-
   const Portal = (props: { children: ReactNode }): ReactPortal => {
+    const portalNode = useRef(document.createElement('div'))
+
+    useOnClickOutside(portalNode, refNode, (event: Event) => {
+      if (options.closeOnOutsideClick) {
+        close(event)
+      }
+    })
+
     useEffect(() => {
-      document.body.appendChild(portalNode.current)
+      const element = portalNode.current
+      document.body.appendChild(element)
 
       return () => {
-        document.body.removeChild(portalNode.current)
+        document.body.removeChild(element)
       }
     }, [])
 
