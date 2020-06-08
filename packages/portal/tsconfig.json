@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "paths": {
-      "@teleport/*": ["node_modules/@teleport/*/src"]
-    }
-  },
-  "include": ["src"]
-}
