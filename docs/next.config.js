@@ -15,5 +15,5 @@ module.exports = {
   exportPathMap: () => ({
     '/': { page: '/' },
   }),
-  assetPrefix: isProd ? '/teleport-components' : ''
+  assetPrefix: isProduction ? '/teleport-components' : ''
 }
